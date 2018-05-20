@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  rails:
+    build: .
+    command: bundle exec rails s -b 0.0.0.0
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/user/public_html
+      - .bash_history:/home/user/.bash_history
+    environment:
+      - EDITOR=vim

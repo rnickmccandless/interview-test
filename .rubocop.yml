@@ -1,0 +1,67 @@
+# https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/Gemfile'
+    - '**/config.ru'
+    - '**/*.rake'
+    - '**/*.jbuilder'
+    - '**/*.rb'
+  Exclude:
+    - '**/db/schema.rb'
+    - '**/script/**/*'
+    - '**/vendor/assets/**/*'
+    - '**/bin/**/*'
+    - '**/gems/**/*'
+    - '**/node_modules/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+AbcSize:
+  Max: 30
+BlockDelimiters:
+  Enabled: false
+BlockLength:
+  Exclude:
+    - '**/admin/**/*'
+    - '**/spec/**/*'
+    - '**/app/views/**/*.jbuilder'
+    - '**/lib/**/*.rake'
+    - '**/config/routes.rb'
+    - '**/config/god*'
+    - '**/config/environments/*'
+ClassLength:
+  Max: 150
+Lambda:
+  Exclude:
+    - 'app/models/**/*'
+LineLength:
+  Max: 80
+  Exclude:
+    - 'config/initializers/content_security_policy.rb'
+Output:
+  Exclude:
+    - '**/*.rake'
+    - '**/rake_support.rb'
+MethodLength:
+  Max: 15
+  Exclude:
+    - '**/db/migrate/*'
+ModuleLength:
+  Max: 150
+FileName:
+  Exclude:
+    - '**/Guardfile'
+    - '**/Capfile'
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - staging
+    - production
+Style/Documentation:
+  Exclude:
+    - '**/db/migrate/*'
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
