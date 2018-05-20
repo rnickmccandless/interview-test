@@ -1,6 +1,5 @@
-# Interview Test Instructions
+# Rogue Pod Interview Test
 
-* Pair Programming
 * User system is already in place with Devise
 
 ## Docker
