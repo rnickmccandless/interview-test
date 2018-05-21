@@ -2,15 +2,11 @@
 
 * User system is already in place with Devise
 
-## Yarn
-
-Yarn is needed.  To install yarn: [https://yarnpkg.com/en/docs/install]( https://yarnpkg.com/en/docs/install)
-
 ## Docker
 
 Project can be ran with *Docker* and *Docker Compose*.
 
-### Docker Compose Instructions
+#### Docker Compose Run Instructions
 
 ```
 docker-compose build
@@ -23,6 +19,16 @@ docker-compose up
 Then visit: `http://localhost:3000`
 
 ## Without Docker
+
+### Yarn
+
+**Yarn** is needed on your system.  To install yarn: [https://yarnpkg.com/en/docs/install]( https://yarnpkg.com/en/docs/install)
+
+### Imagemagick
+
+Make sure **Imagemagick** is installed on your system before the test begins.
+
+#### Run Instructions
 
 ```
 yarn install
