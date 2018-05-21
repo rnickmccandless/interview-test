@@ -7,10 +7,13 @@ ruby '2.5.1'
 
 gem 'rails', '5.2.0'
 
+gem 'autoprefixer-rails'
 gem 'bootsnap', require: false
+gem 'bootstrap'
 gem 'coffee-rails'
 gem 'devise'
 gem 'jbuilder'
+gem 'jquery-rails'
 gem 'puma'
 gem 'sass-rails'
 gem 'sqlite3'
