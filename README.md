@@ -34,7 +34,7 @@ Make sure **Imagemagick** is installed on your system before the test begins.
 yarn install
 bundle install
 bundle exec rails db:migrate
-bundle exec rails s
+bundle exec rails server
 ```
 
 Then visit: `http://localhost:3000`
