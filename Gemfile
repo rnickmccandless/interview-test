@@ -20,6 +20,7 @@ gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'webpacker'
+gem 'paperclip', '~> 6.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
