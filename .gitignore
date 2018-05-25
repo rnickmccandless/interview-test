@@ -32,6 +32,7 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+public/system/
 
 .bash_history
 .irb-history
