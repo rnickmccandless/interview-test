@@ -1,0 +1,24 @@
+%h1 Gallery
+
+- if current_user
+  = form_with model: @photo, url: gallery_path do |f|
+    = f.hidden_field :user_id, value: current_user.id
+    .form-group
+      = f.label :image
+      = f.file_field :image, accept: 'image/png,image/jpeg'
+    .form-group
+      = f.label :caption
+      = f.text_field :caption
+    .form-group
+      = f.submit
+
+
+
+
+  .boxes
+    - @photos.each do |photo|
+      %figure.figure
+        = image_tag photo.image.url(:thumb), class: 'figure-img img-fluid rounded'
+        %figcaption.figure-caption= photo.caption
+
+
