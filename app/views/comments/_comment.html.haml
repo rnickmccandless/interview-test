@@ -1,0 +1,10 @@
+.comment
+  %small #{comment.user.email}:
+  =comment.comment
+
+  - if current_user && current_user.id == comment.user_id
+    .pull-right
+      =link_to edit_gallery_photo_comment_path(comment.photo, comment) do
+        = fa_icon 'edit'
+      =link_to gallery_photo_comment_path(comment.photo, comment), method: :delete, data: { confirm: 'Are you sure?' } do
+        = fa_icon 'trash'

@@ -6,8 +6,6 @@ class PhotosController < ApplicationController
       flash[:success] = 'Successfully saved'
     else
       flash[:error] = @photo.errors.full_messages.join("\n")
-
-      puts @photo.errors.full_messages.join("\n")
     end
 
     redirect_to :gallery

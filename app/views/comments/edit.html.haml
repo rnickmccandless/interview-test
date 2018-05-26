@@ -1,0 +1,6 @@
+= form_with model: @comment, url: gallery_photo_comment_path(@comment) do |f|
+  .form-group
+    = f.label :comment
+    = f.text_area :comment, class: 'form-control'
+  .form-group
+    = f.submit

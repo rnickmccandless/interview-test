@@ -5,6 +5,7 @@
     .card-body
       %fieldset
         %legend Submit Image
+
         = form_with model: @photo, url: gallery_photos_path do |f|
           = f.hidden_field :user_id, value: current_user.id
           .form-group
@@ -20,24 +21,4 @@
 
 .gallery
   %ul.list-unstyled
-    - @photos.each do |photo|
-      %li.media.my-4
-        = image_tag photo.image.url(:thumb), class: 'mr-3 rounded'
-        .media-body
-          %p= photo.caption
-          %p.rating= photo.average_rating
-
-          .media.mt-3
-            .comments
-              - photo.comments.each do |comment|
-                .media-body
-                  .comment= comment.comment
-            - if current_user
-              .comment-form.mt-3
-                [comment form]
-        .float-right
-          = link_to gallery_photo_path(photo), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do
-            = fa_icon 'trash'
-
-
-
+    = render @photos
