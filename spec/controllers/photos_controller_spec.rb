@@ -42,7 +42,7 @@ RSpec.describe PhotosController, type: :controller do
 
   context 'signed in' do
     let(:user) { create :user }
-    
+
     describe "POST #create" do
       it "adds one to count" do
         sign_in user
