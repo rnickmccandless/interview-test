@@ -1,47 +1,40 @@
 class PhotosController < ApplicationController
+  before_action :find_photo, only: [:edit, :update, :destroy]
+
   def create
     @photo = Photo.new photo_params
 
-    if @photo.save
-      flash[:success] = 'Successfully saved'
-    else
-      flash[:error] = @photo.errors.full_messages
-    end
-
-    redirect_to :gallery
+    set_flash_and_redirect { @photo.save }
   end
 
   def edit
-    @photo = Photo.find(params[:id])
   end
 
   def update
-    @photo = Photo.find(params[:id])
-
-    if @photo.update(photo_params)
-      flash[:success] = 'Successfully saved'
-    else
-      flash[:error] = @photo.errors.full_messages
-    end
-
-    redirect_to :gallery
+    set_flash_and_redirect { @photo.update(photo_params) }
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
-
-    if @photo.destroy
-      flash[:success] = 'Successfully saved'
-    else
-      flash[:error] = @photo.errors.full_messages
-    end
-
-    redirect_to :gallery
+    set_flash_and_redirect { @photo.destroy }
   end
 
   private
 
   def photo_params
     params.require(:photo).permit(:image, :caption, :user_id)
+  end
+
+  def find_photo
+    @photo = Photo.find(params[:id])
+  end
+
+  def set_flash_and_redirect
+    if yield
+      flash[:success] = 'Successful'
+    else
+      flash[:error] = @photo.errors.full_messages
+    end
+
+    redirect_to :gallery
   end
 end
