@@ -7,4 +7,8 @@ class Photo < ApplicationRecord
 
   validates_presence_of :image
   validates :caption, presence: true, length: { maximum: 250 }
+
+  def average_rating
+    comments.average :rating
+  end
 end

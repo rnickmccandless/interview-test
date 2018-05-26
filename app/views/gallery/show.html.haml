@@ -1,24 +1,39 @@
 %h1 Gallery
 
 - if current_user
-  = form_with model: @photo, url: gallery_path do |f|
-    = f.hidden_field :user_id, value: current_user.id
-    .form-group
-      = f.label :image
-      = f.file_field :image, accept: 'image/png,image/jpeg'
-    .form-group
-      = f.label :caption
-      = f.text_field :caption
-    .form-group
-      = f.submit
+  .card
+    .card-body
+      %fieldset
+        %legend Submit Image
+        = form_with model: @photo, url: gallery_path do |f|
+          = f.hidden_field :user_id, value: current_user.id
+          .form-group
+            = f.label :image
+            = f.file_field :image, accept: 'image/png,image/jpeg'
+          .form-group
+            = f.label :caption
+            = f.text_field :caption
+          .form-group
+            = f.submit class: 'btn btn-primary'
 
+%hr
 
-
-
-  .boxes
+.gallery
+  %ul.list-unstyled
     - @photos.each do |photo|
-      %figure.figure
-        = image_tag photo.image.url(:thumb), class: 'figure-img img-fluid rounded'
-        %figcaption.figure-caption= photo.caption
+      %li.media.my-4
+        = image_tag photo.image.url(:thumb), class: 'mr-3 rounded'
+        .media-body
+          %p= photo.caption
+          %p.rating= photo.average_rating
+
+          .media.mt-3
+            .comments
+              - photo.comments.each do |comment|
+                .media-body
+                  .comment= comment.comment
+            - if current_user
+              .comment-form.mt-3
+                [comment form]
 
 
