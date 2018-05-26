@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
     if @photo.save
       flash[:success] = 'Successfully saved'
     else
-      flash[:error] = @photo.errors.full_messages.join("\n")
+      flash[:error] = @photo.errors.full_messages
     end
 
     redirect_to :gallery
@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
     if @photo.update(photo_params)
       flash[:success] = 'Successfully saved'
     else
-      flash[:error] = @photo.errors.full_messages.join("\n")
+      flash[:error] = @photo.errors.full_messages
     end
 
     redirect_to :gallery
@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
     if @photo.destroy
       flash[:success] = 'Successfully saved'
     else
-      flash[:error] = @photo.errors.full_messages.join("\n")
+      flash[:error] = @photo.errors.full_messages
     end
 
     redirect_to :gallery

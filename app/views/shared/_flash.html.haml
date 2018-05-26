@@ -1,0 +1,8 @@
+- flash.each do |k, v|
+  %div{ class: flash_class(k) }
+    - if v.is_a? Array
+      %ul
+        - v.each do |message|
+          %li= message
+    - else
+      = v

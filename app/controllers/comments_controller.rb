@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       flash[:success] = 'Successfully saved'
       render :create
     else
-      flash[:error] = @comment.errors.full_messages.join("\n")
+      flash[:error] = @comment.errors.full_messages
       redirect_to :gallery, format: :js
     end
   end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
       flash[:success] = 'Successfully saved'
       redirect_to :gallery
     else
-      flash[:error] = @comment.errors.full_messages.join("\n")
+      flash[:error] = @comment.errors.full_messages
       render :edit
     end
   end
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     if @comment.destroy
       flash[:success] = 'Successfully deleted'
     else
-      flash[:error] = @comment.errors.full_messages.join("\n")
+      flash[:error] = @comment.errors.full_messages
     end
 
     redirect_to :gallery
