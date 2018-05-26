@@ -1,0 +1,10 @@
+= form_with model: @photo, url: gallery_photo_path(@photo) do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  .form-group
+    = f.label :image
+    = f.file_field :image, accept: 'image/png,image/jpeg'
+  .form-group
+    = f.label :caption
+    = f.text_field :caption
+  .form-group
+    = f.submit class: 'btn btn-primary'
