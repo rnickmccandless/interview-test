@@ -5,13 +5,13 @@
     %p= photo.caption
     %p
       Rating:
-      %span.rating{ 'data-photo-id': photo.id }#{photo.average_rating&.round(2)}
+      %span.rating{ 'data-photo-id': photo.id }#{photo.average_rating}
 
     .media.mt-3
       .media-body
         .comments{ data: { 'photo-id': photo.id } }
           %h5 Comments:
-          = render photo.comments
+          = render photo.comments.with_user
         .clearfix
 
         - if current_user

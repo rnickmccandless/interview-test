@@ -1,6 +1,6 @@
 // Updates rating
 document.querySelector('.rating[data-photo-id="<%= @comment.photo_id %>"]')
-    .innerHTML = "<%= @comment.photo.average_rating.round(2) %>";
+    .innerHTML = "<%= @comment.photo.average_rating %>";
 
 // Appends new comment
 document.querySelector('.comments[data-photo-id="<%= @comment.photo_id %>"]')
