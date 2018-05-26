@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_photo, only: [:edit, :update, :destroy]
 
   def create
